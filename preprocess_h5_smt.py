@@ -44,12 +44,12 @@ def get_data(sess, subj):
 
 
 with h5py.File(pjoin(out, 'KU_mi_smt.h5'), 'w') as f:
-    for subj in tqdm(range(1, 55)):
-        X1, Y1 = get_data(1, subj)
-        X2, Y2 = get_data(2, subj)
-        X = np.concatenate((X1, X2), axis=0)
-        X = X.astype(np.float32)
-        Y = np.concatenate((Y1, Y2), axis=0)
-        Y = Y.astype(np.int64)
-        f.create_dataset('s' + str(subj) + '/X', data=X)
-        f.create_dataset('s' + str(subj) + '/Y', data=Y)
+    subj = 1
+    X1, Y1 = get_data(1, subj)
+    X2, Y2 = get_data(2, subj)
+    X = np.concatenate((X1, X2), axis=0)
+    X = X.astype(np.float32)
+    Y = np.concatenate((Y1, Y2), axis=0)
+    Y = Y.astype(np.int64)
+    f.create_dataset('s' + str(subj) + '/X', data=X)
+    f.create_dataset('s' + str(subj) + '/Y', data=Y)
